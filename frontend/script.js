@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const textualExplanation = document.getElementById('textual-explanation');
     const errorMessage = document.getElementById('error-message');
 
-    const API_URL = 'https://newsguard-ai-fake-news-detection.up.railway.app';
+    const API_URL = 'https://newsguard-ai-fake-news-detection.up.railway.app/predict';
 
     analyzeBtn.addEventListener('click', async () => {
         const text = newsInput.value.trim();    

@@ -2,6 +2,11 @@
 
 NewsGuard AI is an end-to-end web platform and browser extension designed to detect fake news using Deep Learning. Going beyond a simple "Fake" or "Real" binary classification, this system utilizes **Explainable AI (LIME)** to visualize *why* the model made its decision, highlighting specific words that influenced the prediction.
 
+## 🌐 Live Demo
+The application is fully deployed and accessible online:
+- **Frontend (Vercel):** [https://news-guard-ai-fake-news-detection-a.vercel.app/](https://news-guard-ai-fake-news-detection-a.vercel.app/)
+- **Backend (Railway):** Serving the FastAPI endpoints seamlessly to the Vercel UI.
+
 ## 🌟 Key Features
 - **Deep Learning Core**: Built on a Bidirectional LSTM (BiLSTM) model trained on the ISOT Fake News Dataset (~45,000 articles).
 - **Explainable AI (XAI)**: Uses LIME (Local Interpretable Model-Agnostic Explanations) to provide human-readable visualizations of the model's decision-making process.
