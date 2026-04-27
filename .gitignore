@@ -43,5 +43,3 @@ Thumbs.db
 # Datasets (Do not commit massive CSV files to Git!)
 backend/data/
 *.csv
-*.h5
-*.pkl
