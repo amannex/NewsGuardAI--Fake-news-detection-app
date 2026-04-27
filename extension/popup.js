@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const errorMessage = document.getElementById('error-message');
 
     // Make sure FastAPI is running locally or hosted on a server
-    const API_URL = 'http://127.0.0.1:8000/predict';
+    const API_URL = 'https://newsguard-ai-fake-news-detection.up.railway.app';
 
     analyzeBtn.addEventListener('click', async () => {
         const text = newsInput.value.trim();

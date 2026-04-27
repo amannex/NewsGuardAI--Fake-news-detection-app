@@ -12,10 +12,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const textualExplanation = document.getElementById('textual-explanation');
     const errorMessage = document.getElementById('error-message');
 
-    const API_URL = 'http://127.0.0.1:8000/predict';
+    const API_URL = 'https://newsguard-ai-fake-news-detection.up.railway.app';
 
     analyzeBtn.addEventListener('click', async () => {
-        const text = newsInput.value.trim();
+        const text = newsInput.value.trim();    
         
         // Reset state
         resultContainer.classList.add('hidden');
