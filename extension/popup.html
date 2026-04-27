@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="header">
+        <h2>NewsGuard <span>AI</span></h2>
+        <p>Highlight text on page or paste below</p>
+    </div>
+
+    <div class="container">
+        <textarea id="news-input" placeholder="Paste news text here..."></textarea>
+        
+        <button id="analyze-btn" class="btn-primary">
+            <span id="btn-text">Analyze</span>
+            <div id="loader" class="loader hidden"></div>
+        </button>
+
+        <!-- Result Section -->
+        <div id="result-container" class="result-container hidden">
+            <div class="prediction-header">
+                <h3>Prediction: <span id="pred-label"></span></h3>
+                <p>Confidence: <span id="pred-confidence"></span>%</p>
+            </div>
+            
+            <div class="explanation-box">
+                <div class="legend">
+                    <span class="legend-item"><span class="color-box real-box"></span> Real</span>
+                    <span class="legend-item"><span class="color-box fake-box"></span> Fake</span>
+                </div>
+                <div id="highlighted-text" class="highlighted-text">
+                    <!-- Dynamic LIME output -->
+                </div>
+                <div id="textual-explanation" class="textual-explanation" style="margin-top: 15px; padding: 12px; background: #f8fafc; border-radius: 6px; font-size: 0.9rem; line-height: 1.5; color: var(--text-secondary); border-left: 3px solid var(--accent);">
+                    <!-- Dynamic Textual Summary -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Error Section -->
+        <div id="error-container" class="error-container hidden">
+            <p id="error-message"></p>
+        </div>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>

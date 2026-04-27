@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "NewsGuard AI",
+  "version": "1.0",
+  "description": "Detect fake news on the fly with Explainable AI (LIME). Highlight text and analyze instantly.",
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Analyze News"
+  },
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "http://127.0.0.1:8000/*",
+    "http://localhost:8000/*"
+  ]
+}

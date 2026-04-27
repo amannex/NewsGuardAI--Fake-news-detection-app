@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NewsGuard AI | Fake News Detection</title>
+    <!-- Modern Typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header / Navbar -->
+    <header class="navbar">
+        <div class="logo">NewsGuard<span> AI</span></div>
+        <nav>
+            <ul>
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About Project</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#team">Our Team</a></li>
+                <li><a href="https://microsoftedge.microsoft.com/addons" target="_blank" rel="noopener noreferrer" class="btn-primary" style="padding: 0.5rem 1rem; font-size: 0.95rem; color: white; border-radius: 6px;">⬇ Extension</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="hero">
+        <div class="hero-content">
+            <div class="badge">XAI Powered</div>
+            <h1 class="hero-title">AI Fake News Detection using <span>Explainable AI</span></h1>
+            <p class="hero-subtitle">Not just prediction — we explain why. Discover the invisible truth with state-of-the-art Bidirectional LSTMs and Interpretability.</p>
+            <div class="hero-actions">
+                <a href="#explore" class="btn-primary">Analyze News Now</a>
+                <a href="#how-it-works" class="btn-secondary">Learn More</a>
+            </div>
+        </div>
+        <div class="hero-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="section about">
+        <div class="container section-container">
+            <div class="split-content">
+                <div class="text-block">
+                    <h2>The Fake News Epidemic</h2>
+                    <p>In an era of rapid information sharing, distinguishing fact from fiction is a modern-day challenge. Fake news not only misinforms but can manipulate elections, economies, and public health.</p>
+                    <p>Our solution utilizes <strong>Explainable AI (XAI)</strong>. Instead of accepting a black-box model's answer, we generate human-readable explanations using LIME (Local Interpretable Model-Agnostic Explanations), so you can understand <em>exactly</em> which words influenced the prediction.</p>
+                </div>
+                <div class="card-glass about-card interactive-card">
+                    <div class="icon-circle">💡</div>
+                    <h3>Why XAI matters:</h3>
+                    <ul>
+                        <li><span class="icon">🔍</span> <strong>Transparency:</strong> See inside deep learning</li>
+                        <li><span class="icon">⚖️</span> <strong>Trust:</strong> Builds user confidence</li>
+                        <li><span class="icon">🛡️</span> <strong>Security:</strong> Exposes model biases</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS SECTION -->
+    <section id="how-it-works" class="section steps">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2>How It Works</h2>
+                <p>The journey from raw text to explainable intelligence.</p>
+            </div>
+            <div class="steps-grid">
+                <div class="step-card interactive-card">
+                    <div class="step-number">1</div>
+                    <div class="step-title">Input</div>
+                    <p>You paste a news article or headline into our classification engine.</p>
+                </div>
+                <div class="step-card interactive-card">
+                    <div class="step-number">2</div>
+                    <div class="step-title">Processing</div>
+                    <p>We tokenize, pad, and analyze the sequence using an advanced BiLSTM Neural Network.</p>
+                </div>
+                <div class="step-card interactive-card">
+                    <div class="step-number">3</div>
+                    <div class="step-title">Prediction</div>
+                    <p>The system predicts realism: is the content <strong>REAL</strong> or <strong>FAKE</strong> along with a confidence score.</p>
+                </div>
+                <div class="step-card interactive-card">
+                    <div class="step-number">4</div>
+                    <div class="step-title">Explanation</div>
+                    <p>Finally, using LIME, we highlight the exact terms that pushed the model toward its conclusion.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPLORE SECTION -->
+    <section id="explore" class="section explore">
+        <div class="container explore-container card-glass interactive-card">
+            <h2 class="text-center">Analyze News</h2>
+            <p class="text-center">Paste any news text to test the model & view the XAI highlighted explanation.</p>
+            
+            <div class="analyzer-wrapper">
+                <textarea id="news-input" placeholder="Enter news excerpt here... e.g. 'The economy saw a major boost today after reports...'"></textarea>
+                
+                <button id="analyze-btn" class="btn-primary w-100 mt-20">
+                    <span id="btn-text">Analyze News</span>
+                    <span id="loader" class="loader hidden"></span>
+                </button>
+            </div>
+
+            <!-- RESULT DISPLAY -->
+            <div id="result-container" class="result-container hidden">
+                <div class="prediction-header">
+                    <h3>Prediction: <span id="pred-label"></span></h3>
+                    <p>Confidence: <span id="pred-confidence"></span>%</p>
+                </div>
+                
+                <div class="explanation-box">
+                    <h4>XAI Explanation (LIME):</h4>
+                    <p class="legend">
+                        <span class="legend-item"><span class="color-box real-box"></span> Real Indicators</span>
+                        <span class="legend-item"><span class="color-box fake-box"></span> Fake Indicators</span>
+                    </p>
+                    <div id="highlighted-text" class="highlighted-text">
+                        <!-- Filled by JS -->
+                    </div>
+                    <div id="textual-explanation" class="textual-explanation mt-20" style="padding: 1rem; background: #f8fafc; border-radius: 8px; font-size: 0.95rem; line-height: 1.5; color: var(--text-secondary); border-left: 4px solid var(--accent);">
+                        <!-- Filled by JS -->
+                    </div>
+                </div>
+            </div>
+            
+            <!-- ERROR DISPLAY -->
+            <div id="error-container" class="error-container hidden">
+                <p id="error-message"></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOD SECTION -->
+    <section id="hod" class="section team">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2>Our HOD</h2>
+            </div>
+            <div class="team-tier">
+                <div class="team-member card-glass interactive-card hod-card">
+                    <div class="avatar hod-avatar">HOD</div>
+                    <h4>Dr. Sanjai Gupta</h4>
+                    <p class="role-badge">Head of Department</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MENTOR SECTION -->
+    <section id="mentor" class="section team pt-0 bg-white">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2>Our Mentor</h2>
+            </div>
+            <div class="team-tier">
+                <div class="team-member card-glass interactive-card mentor-card">
+                    <div class="avatar mentor-avatar">M</div>
+                    <h4>Er. Sharad Kumar</h4>
+                    <p class="role-badge">Project Mentor</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GUIDANCE SECTION -->
+    <section id="guidance" class="section team pt-0">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2>Under the Guidance Of</h2>
+            </div>
+            <div class="guidance-grid mt-80">
+                <div class="team-member card-glass interactive-card">
+                    <div class="avatar">G1</div>
+                    <h4>Dr. Yashpal Singh</h4>
+                    <p class="role-badge">Professor</p>
+                </div>
+                <div class="team-member card-glass interactive-card">
+                    <div class="avatar">G2</div>
+                    <h4>Prof. R.N Verma</h4>
+                    <p class="role-badge">Professor</p>
+                </div>
+                <div class="team-member card-glass interactive-card">
+                    <div class="avatar">G3</div>
+                    <h4>Er. Shweta Rajpoot</h4>
+                    <p class="role-badge">Faculty</p>
+                </div>
+                <div class="team-member card-glass interactive-card">
+                    <div class="avatar">G4</div>
+                    <h4>Er. Dharmendra Singh</h4>
+                    <p class="role-badge">Faculty</p>
+                </div>
+                <div class="team-member card-glass interactive-card">
+                    <div class="avatar">G5</div>
+                    <h4>Er. Imran Khan</h4>
+                    <p class="role-badge">Faculty</p>
+                </div>
+                <div class="team-member card-glass interactive-card">
+                    <div class="avatar">G6</div>
+                    <h4>Er. Devendra Dellwar</h4>
+                    <p class="role-badge">Faculty</p>
+                </div>
+                <div class="team-member card-glass interactive-card">
+                    <div class="avatar">G7</div>
+                    <h4>Er. Sujal Agrawal</h4>
+                    <p class="role-badge">Faculty</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OUR TEAM SECTION -->
+    <section id="team" class="section team pt-0 bg-white">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2>Our Team</h2>
+            </div>
+            <div class="team-grid mt-80">
+                <div class="team-member card-glass interactive-card">
+                    <div class="avatar">T1</div>
+                    <h4>Aditya Tiwari</h4>
+                    <p class="role-badge">2200430100004</p>
+                </div>
+                <div class="team-member card-glass interactive-card">
+                    <div class="avatar">T2</div>
+                    <h4>Aman</h4>
+                    <p class="role-badge">2200430100006</p>
+                </div>
+                <div class="team-member card-glass interactive-card">
+                    <div class="avatar">T3</div>
+                    <h4>Apoorv Chaturvedi</h4>
+                    <p class="role-badge">2200430100012</p>
+                </div>
+                <div class="team-member card-glass interactive-card">
+                    <div class="avatar">T4</div>
+                    <h4>Anuj Pandey</h4>
+                    <p class="role-badge">2200430100014</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container team-section">
+            <p>&copy; 2026 NewsGuard AI | Fake News Detection System with Explainable AI</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
